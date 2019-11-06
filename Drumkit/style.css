@@ -1,0 +1,93 @@
+body {
+    background: rgb(0, 0, 0);
+    background-image: url("bg.jpg");
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 100%;
+    background-position-x: 100px;
+
+
+
+
+}
+
+h1 {
+    color: rgb(22, 179, 61);
+    text-align: center;
+    font-size: 50px;
+}
+
+h2 {
+    font-size: 30px;
+    color: rgb(255, 25, 159);
+    padding: 6px;
+}
+
+p {
+    color: rgb(119, 226, 194);
+    font-size: 20px;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+p1 {
+    margin-left: 10px;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+button {
+    display: block;
+    margin: 0 auto;
+    outline: none;
+    cursor: pointer;
+}
+
+.controls1 {
+    margin-top: 110px;
+    border: 1px solid rgb(250, 0, 0);
+    padding: 10px;
+    margin-right: 24px;
+    margin-left: 24px;
+    width: 70px;
+    background: chartreuse;
+
+}
+
+.controls {
+
+    display: block;
+    margin: 11px 24px;
+    width: 70px;
+    border: 1px solid rgb(250, 0, 0);
+    padding: 10px;
+    background: chartreuse;
+
+}
+
+.container {
+    margin-top: 100px;
+    width: 360px;
+    height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.box1 {
+    width: 200px;
+    float: left;
+    background-color: #623da7;
+    height: 600px;
+
+}
+
+.box2 {
+
+    float: left;
+    height: 600px;
+    width: 160px;
+    background-color: #623da7;
+    border-bottom-right-radius: 80px;
+}
