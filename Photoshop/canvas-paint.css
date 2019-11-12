@@ -1,0 +1,43 @@
+body {
+    background: lightslategrey;
+}
+
+#canvas {
+    background: #fff;
+    margin: 0 auto;
+    position: relative;
+    display: block;
+}
+
+/* #canvas {
+    width: 60vw;
+    height: 70vh;
+    margin: 50px auto;
+    background: #fff;
+    position: relative; */
+
+.darken {
+    float: left;
+}
+
+.brightnes {
+    float: left;
+}
+
+#filtry {
+    float: left;
+
+    border: 3px solid black;
+}
+
+.brush {
+    width: 10px;
+    height: 10px;
+    background: blue;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+.circle-brush {
+    border-radius: 50%;
+}
