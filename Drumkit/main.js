@@ -13,7 +13,11 @@
   class Drumkit {
 
       constructor(btnRec, btnStop, btnPlay, ) {
+        
           this.channel = []
+          this.record1 = document.querySelector(btnRec);
+          this.stopRecord1 = document.querySelector(btnStop);
+          this.playRecord1 = document.querySelector(btnPlay);
           this.channelStartTime = null
           this.channelRecording = false
           this.btnRec = document
@@ -49,16 +53,16 @@
           if (this.channelRecording) {
               this.channel.splice(0);
               this.channelStartTime = Date.now();
-              record1.disabled = true;
-              stopRecord1.disabled = false;
-              playRecord1.disabled = false;
+              this.record1.disabled = true;
+              this.stopRecord1.disabled = false;
+              this.playRecord1.disabled = false;
           }
       }
       stopRecord = () => {
           this.channelRecording = false;
-          record1.disabled = false;
-          stopRecord1.disabled = true;
-          playRecord1.disabled = false;
+          this.record1.disabled = false;
+          this.stopRecord1.disabled = true;
+         this.playRecord1.disabled = false;
 
       }
 
@@ -68,9 +72,9 @@
               this.channel
                   .forEach(el => {
                       setTimeout(this.playSound, el.time - this.channelStartTime, el.code);
-                      record1.disabled = false;
-                      stopRecord1.disabled = false;
-                      playRecord1.disabled = true;
+                      this.record1.disabled = false;
+                      this.stopRecord1.disabled = false;
+                      this.playRecord1.disabled = true;
 
                   })
           }
@@ -80,7 +84,7 @@
 
 
       playSound = (code) => {
-
+        console.log (code);
           switch (code) {
               case 'KeyA':
                   clapSound.currentTime = 0;
