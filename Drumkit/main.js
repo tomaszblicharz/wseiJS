@@ -12,14 +12,14 @@
 
   class Drumkit {
 
-      constructor(btnRec, btnStop, btnPlay, ) {
+      constructor(btnRec, btnStop, btnPlay) {
         
           this.channel = []
           this.record1 = document.querySelector(btnRec);
           this.stopRecord1 = document.querySelector(btnStop);
           this.playRecord1 = document.querySelector(btnPlay);
-          this.channelStartTime = null
-          this.channelRecording = false
+          this.channelStartTime = null;
+          this.channelRecording = false;
           this.btnRec = document
               .querySelector(`${btnRec}`)
           document
