@@ -1,133 +1,138 @@
-  const clapSound = document.querySelector('#clap');
-  const boomSound = document.querySelector('#boom');
-  const hihatSound = document.querySelector('#hihat');
-  const kickSound = document.querySelector('#kick');
-  const openhatSound = document.querySelector('#openhat');
-  const rideSound = document.querySelector('#ride');
-  const snareSound = document.querySelector('#snare');
-  const tinkSound = document.querySelector('#tink');
-  const tomSound = document.querySelector('#tom');
+document.addEventListener('DOMContentLoaded', appStart);
+
+
+const clapSound = document.querySelector('#clap');
+const boomSound = document.querySelector('#boom');
+const hihatSound = document.querySelector('#hihat');
+const kickSound = document.querySelector('#kick');
+const openhatSound = document.querySelector('#openhat');
+const rideSound = document.querySelector('#ride');
+const snareSound = document.querySelector('#snare');
+const tinkSound = document.querySelector('#tink');
+const tomSound = document.querySelector('#tom');
+
+
+let record1Active = false;
+const table1 = [];
+// const records2 = [];
+// const records3 = [];
+// const records4 = [];
+
+function appStart() {
+    document.body.addEventListener('keypress', playSound);
+    // document.body.addEventListener('click', startRecord1);
+    // document.body.addEventListener('click', stopRecord1);
+    // document.body.addEventListener('click', playRecord1);
+    // document.body.addEventListener('click', playAllRecords, false);
+
+    // btnRec = document.querySelector("#record1");
+    // btnStop = document.querySelector("#stopRecord1");
+    // btnPlay = document.querySelector("#playRecord1");
+    // btnPlay = document.querySelector('#playAllRecord');
+
+    addListenerToButtons('#record1', startRecord1);
+    addListenerToButtons('#stopRecord1', stopRecord1);
+    addListenerToButtons('#playRecord1', playRecord1);
+    // addListenerToButtons('#playAllRecords', playAllRecords);
+
+}
+
+function addListenerToButtons(id, itsTask) {
+    document
+        .querySelector(id)
+        .addEventListener('click', itsTask)
+}
+
+function playSound(e) {
+    if (record1Active) {
+        table1.push({
+            time: Date.now(),
+            code: e.code,
+        })
+    }
+    playSound(e.code);
+}
+
+
+function startRecord1() {
+    record1Active = !record1Active;
+    if (record1Active) {
+        table1.splice(0);
+        record1Active = Date.now();
+    }
+}
 
 
 
-  class Drumkit {
+// function record1(e) {
+//     const time = Date.now() - record1Active;
+//     table1.push({
+//         code: e.code,
+//         time: time,
 
-      constructor(btnRec, btnStop, btnPlay) {
-        
-          this.channel = []
-          this.record1 = document.querySelector(btnRec);
-          this.stopRecord1 = document.querySelector(btnStop);
-          this.playRecord1 = document.querySelector(btnPlay);
-          this.channelStartTime = null;
-          this.channelRecording = false;
-          this.btnRec = document
-              .querySelector(`${btnRec}`)
-          document
-              .querySelector(btnPlay)
-              .addEventListener('click', this.playRecord);
-          this.btnStop = document
-              .querySelector(`${btnStop}`)
-          document
-              .querySelector(btnStop)
-              .addEventListener('click', this.stopRecord);
+//     })
 
-          this.btnRec.addEventListener('click', this.startRecording);
+// }
 
-          this.btnStop.addEventListener('click', this.stopRecording);
-
-          document.body.addEventListener('keypress', this.playAudio);
-      }
-
-      playAudio = (e) => {
-          if (this.channelRecording) {
-              this.channel.push({
-                  code: e.code,
-                  time: Date.now(),
-              })
-          }
-          this.playSound(e.code);
-      }
-
-      startRecording = () => {
-          this.channelRecording = !this.channelRecording;
-          if (this.channelRecording) {
-              this.channel.splice(0);
-              this.channelStartTime = Date.now();
-              this.record1.disabled = true;
-              this.stopRecord1.disabled = false;
-              this.playRecord1.disabled = false;
-          }
-      }
-      stopRecord = () => {
-          this.channelRecording = false;
-          this.record1.disabled = false;
-          this.stopRecord1.disabled = true;
-         this.playRecord1.disabled = false;
-
-      }
+// function playSound(sound) {
+//     sound.currentTime = 0;
+//     sound.play();
+// }
 
 
-      playRecord = () => {
-          if (!this.channelRecording) {
-              this.channel
-                  .forEach(el => {
-                      setTimeout(this.playSound, el.time - this.channelStartTime, el.code);
-                      this.record1.disabled = false;
-                      this.stopRecord1.disabled = false;
-                      this.playRecord1.disabled = true;
+function stopRecord1() {
+    record1Active = false;
+}
 
-                  })
-          }
+function playRecord1() {
+    for (let i = 0; i < table1.length; i++) {
+        setTimeout(playSound, table1[i].time, table1[i].code);
+    }
+}
+// function playAllRecords() {
 
-      }
+// }
 
 
 
-      playSound = (code) => {
-        console.log (code);
-          switch (code) {
-              case 'KeyA':
-                  clapSound.currentTime = 0;
-                  clapSound.play();
-                  break
-              case 'KeyS':
-                  boomSound.currentTime = 0;
-                  boomSound.play();
-                  break
-              case "KeyD":
-                  hihatSound.currentTime = 0;
-                  hihatSound.play();
-                  break
-              case 'KeyF':
-                  kickSound.currentTime = 0;
-                  kickSound.play();
-                  break
-              case "KeyG":
-                  openhatSound.currentTime = 0;
-                  openhatSound.play();
-                  break
-              case 'KeyH':
-                  rideSound.currentTime = 0;
-                  rideSound.play();
-                  break
-              case 'KeyJ':
-                  snareSound.currentTime = 0;
-                  snareSound.play();
-                  break
-              case "KeyK":
-                  tinkSound.currentTime = 0;
-                  tinkSound.play();
-                  break
-              case "KeyL":
-                  tomSound.currentTime = 0;
-                  tomSound.play();
-                  break
-          }
-      }
-  }
-
-
-  const drum = new Drumkit('#record1', '#stopRecord1', '#playRecord1');
-  const drum2 = new Drumkit('#record2', '#stopRecord2', '#playRecord2', );
-  const drum3 = new Drumkit('#record3', '#stopRecord3', '#playRecord3');
-  const drum4 = new Drumkit('#record4', '#stopRecord4', '#playRecord4');
+function playSound(e) {
+    // console.log(e.code);
+    switch (e.code) {
+        case 'KeyA':
+            clapSound.currentTime = 0;
+            clapSound.play();
+            break
+        case 'KeyS':
+            boomSound.currentTime = 0;
+            boomSound.play();
+            break
+        case "KeyD":
+            hihatSound.currentTime = 0;
+            hihatSound.play();
+            break
+        case 'KeyF':
+            kickSound.currentTime = 0;
+            kickSound.play();
+            break
+        case "KeyG":
+            openhatSound.currentTime = 0;
+            openhatSound.play();
+            break
+        case 'KeyH':
+            rideSound.currentTime = 0;
+            rideSound.play();
+            break
+        case 'KeyJ':
+            snareSound.currentTime = 0;
+            snareSound.play();
+            break
+        case "KeyK":
+            tinkSound.currentTime = 0;
+            tinkSound.play();
+            break
+        case "KeyL":
+            tomSound.currentTime = 0;
+            tomSound.play();
+            break
+    }
+}

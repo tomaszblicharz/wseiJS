@@ -34,14 +34,14 @@ p1 {
     font-weight: 700;
     margin-top: 10px;
 }
-p2
-{
-    margin-left: 10px;
-    font-size: 11px;
+
+p2 {
+    font-size: 12px;
     color: rgb(0, 0, 0);
     font-weight: 700;
-    margin-top: 10px;  
+    text-align: justify;
 }
+
 button {
     display: block;
     margin: 0 auto;
@@ -91,4 +91,13 @@ button {
     float: left;
     height: 700px;
     width: 160px;
+}
+
+.controls2 {
+    background: gold;
+    display: block;
+    margin: 11px 24px;
+    width: 70px;
+    border: 1px solid rgb(250, 0, 0);
+    padding: 10px;
 }
