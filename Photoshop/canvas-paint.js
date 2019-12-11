@@ -2,11 +2,13 @@ document.addEventListener('DOMContentLoaded', appStart);
 
 let canvas
 let ctx
+let myPs
 
 function appStart() {
-    const myPs = new Photoshop('canvas');
+    myPs = new Photoshop('canvas');
 
     canvas = document.querySelector('#canvas');
+
     document
         .querySelector('#btnDarken')
         .addEventListener('click', () =>
@@ -19,24 +21,20 @@ function appStart() {
         );
     document
         .querySelector('#btnSquare')
-        .addEventListener('click', () =>
-            setBrush('square')
-        );
+        .addEventListener('click', () => {
+            myPs.setBrush('square')
+        });
     document
         .querySelector('#btnCircle')
-        .addEventListener('click', () =>
-            setBrush('circle')
-        );
-
-
+        .addEventListener('click', () => {
+            myPs.setBrush('circle')
+        });
     ctx = canvas.getContext('2d');
     // ctx.rect(50, 50, 300, 200) //kwadrat
     // ctx.fill()
     // ctx.arc(500, 500, 50, 0, 2 * Math.PI) //kolko
     // ctx.stroke() //-obrysowanie
     drawImage();
-
-
 
 }
 

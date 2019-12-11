@@ -4,17 +4,11 @@ body {
 
 #canvas {
     background: #fff;
-    margin: 0 auto;
-    position: relative;
-    display: block;
-}
-
-/* #canvas {
-    width: 60vw;
-    height: 70vh;
     margin: 50px auto;
-    background: #fff;
-    position: relative; */
+    position: relative;
+    width: 90vw;
+    height: 70vh;
+}
 
 .darken {
     float: left;
@@ -33,11 +27,15 @@ body {
 .brush {
     width: 10px;
     height: 10px;
-    background: blue;
+    background: red;
     position: absolute;
     transform: translate(-50%, -50%);
 }
 
 .circle-brush {
     border-radius: 50%;
+}
+
+button {
+    display: inline-block;
 }
