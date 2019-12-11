@@ -191,6 +191,7 @@ function playAllRecords() {
 }
 
 function playSound(key) {
+    console.log(key)
     switch (key) {
         case 'KeyA':
             clapSound.currentTime = 0;
