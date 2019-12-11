@@ -8,6 +8,8 @@ class Photoshop {
         this.brushShapeName = 'circle';
 
 
+
+
     }
 
     onTouchMove(e) {
