@@ -21,33 +21,32 @@ function appStart() {
         );
     document
         .querySelector('#btnSquare')
-        .addEventListener('click', () =>
+        .addEventListener('click', () => {
             myPs.setBrush('square')
-        );
+        });
     document
         .querySelector('#btnCircle')
-        .addEventListener('click', () =>
+        .addEventListener('click', () => {
             myPs.setBrush('circle')
-        );
+        });
     ctx = canvas.getContext('2d');
     // ctx.rect(50, 50, 300, 200) //kwadrat
     // ctx.fill()
     // ctx.arc(500, 500, 50, 0, 2 * Math.PI) //kolko
     // ctx.stroke() //-obrysowanie
-    drawImage();
-
+    drawImage()
 }
 
-function changeBrush(typeBrush) {
-    brushType = typeBrush;
-}
+// function changeBrush(typeBrush) {
+//     brushType = typeBrush;
+// }
 
 
-function getBrush() {
-    const div = document.createElement('div');
-    div.classList.add('brush', `${brushType}-brush`);
-    return div;
-}
+// function getBrush() {
+//     const div = document.createElement('div');
+//     div.classList.add('brush', `${brushType}-brush`);
+//     return div;
+// }
 
 function drawImage() {
 

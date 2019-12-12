@@ -24,8 +24,9 @@ class Photoshop {
         brush.style.left = `${x}px`;
         //namaluj
         this.canvas.appendChild(brush);
-        console.log(appendChild)
-        // this.ctx.stroke();
+        console.log(this.brushShapeName)
+
+
     }
 
     // onTouchEnd(e) {
