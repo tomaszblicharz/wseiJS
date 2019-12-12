@@ -21,14 +21,14 @@ function appStart() {
         );
     document
         .querySelector('#btnSquare')
-        .addEventListener('click', () => {
+        .addEventListener('click', () =>
             myPs.setBrush('square')
-        });
+        );
     document
         .querySelector('#btnCircle')
-        .addEventListener('click', () => {
+        .addEventListener('click', () =>
             myPs.setBrush('circle')
-        });
+        );
     ctx = canvas.getContext('2d');
     // ctx.rect(50, 50, 300, 200) //kwadrat
     // ctx.fill()
