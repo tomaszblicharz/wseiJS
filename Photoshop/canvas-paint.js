@@ -6,7 +6,15 @@ let myPs
 
 function appStart() {
     myPs = new Photoshop('canvas');
+    canvas = document.querySelector('canvas');
 
+    document
+        .querySelector('#btnLoadImage')
+        .addEventListener('click', () => loadImage());
+    document
+        .querySelector('#btnClear')
+        .addEventListener('click', () =>
+            clear());
     document
         .querySelector('#btnDarken')
         .addEventListener('click', () =>
@@ -32,19 +40,15 @@ function appStart() {
         .addEventListener('click', () =>
             myPs.setBrush('emptyCircle')
         );
-    document
-        .querySelector('#btnClear')
-        .addEventListener('click', () =>
-            clear('clear'));
-    // document
-    //     .querySelector('#btnLoadPicture')
-    //     .addEventListener('click'()=> loadPicture);
+
     // ctx.rect(50, 50, 300, 200) //kwadrat
     // ctx.fill()
     // ctx.arc(500, 500, 50, 0, 2 * Math.PI) //kolko
     // ctx.stroke() //-obrysowanie
-    drawImage()
+    ctx = canvas.getContext('2d')
 
+    drawImage()
+    clear()
 }
 
 
@@ -63,17 +67,24 @@ function appStart() {
 
 
 function drawImage() {
-
     const image = new Image()
     image.src = "zdjecie.jpg"
     image.addEventListener('load', () => {
-        this.ctx.drawImage(image, 0, 0)
+        ctx.drawImage(image, 0, 0)
     })
 }
 
-function clean() {
-    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+function loadImage() {
+
+    drawImage()
 }
+
+
+function clear() {
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
+}
+
 
 function darkenFilter(amount = 10) //-sciemnia pixele i przepisuje na nowo do canvasa
 {

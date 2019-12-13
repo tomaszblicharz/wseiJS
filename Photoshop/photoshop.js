@@ -4,13 +4,8 @@ class Photoshop {
         this.ctx = this.canvas.getContext('2d');
         this.canvas.addEventListener('touchmove', (e) => this.onTouchMove(e));
         this.canvas.addEventListener('touchstart', (e) => this.onTouchMove(e));
-        // this.canvas.addEventListener('touchend', onTouchEnd);
-        this.brushShapeName = 'square';
-        this.brushShapeName = 'circle';
-        this.brushShapeName = 'emptyCircle';
-
-
-
+        // this.canvas.addEventListener('touchend', (e) => this.onTouchMove(e));
+        this.brushShapeName = 'square', 'circle', 'emptyCircle';
 
 
     }
@@ -40,8 +35,10 @@ class Photoshop {
                 this.ctx.arc(x, y, 10, 0, 2 * Math.PI);
                 this.ctx.stroke()
                 break;
+
+
         }
-        console.log(this.canvas.offsetTop)
+        // console.log(this.canvas.offsetTop)
 
     }
 
