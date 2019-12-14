@@ -3,10 +3,42 @@ document.addEventListener('DOMContentLoaded', appStart);
 let canvas
 let ctx
 let myPs
+const colorPurple = "#cb3594";
+const colorGreen = "#659b41";
+const colorYellow = "#ffcf33";
+const colorRed = "#986928";
+const colorBlack = "#934443";
+
 
 function appStart() {
     myPs = new Photoshop('canvas');
     canvas = document.querySelector('canvas');
+    let btnColor = document.querySelector('#color');
+    // document
+    //     .getElementById('canvas').style.cursor = "pointer";
+    btnColor
+        .addEventListener('change', () => myPs.setColorBrush(btnColor.value));
+
+    document
+        .querySelector('#btnRed')
+        .addEventListener('click', () =>
+            myPs.setSimpleColorBrush('colorRed'));
+    // document
+    //     .querySelector('#btnYellow')
+    //     .addEventListener('click', () =>
+    //         myPs.setSimpleColorBrush('colorYellow'));
+    // document
+    //     .querySelector('#btnBlack')
+    //     .addEventListener('click', () =>
+    //         myPs.setSimpleColorBrush('colorBlack'));
+    // document
+    //     .querySelector('#btnGreen')
+    //     .addEventListener('click', () =>
+    //         myPs.setSimpleColorBrush('colorGreen'));
+    // document
+    //     .querySelector('#btnBlue')
+    //     .addEventListener('click', () =>
+    //         myPs.setSimpleColorBrush('colorBlue'));
 
     document
         .querySelector('#btnLoadImage')
@@ -18,33 +50,27 @@ function appStart() {
     document
         .querySelector('#btnDarken')
         .addEventListener('click', () =>
-            darkenFilter()
-        );
+            darkenFilter());
     document
         .querySelector('#btnBrightnes')
         .addEventListener('click', () =>
-            brightnesFilter()
-        );
+            brightnesFilter());
     document
         .querySelector('#btnSquare')
         .addEventListener('click', () =>
-            myPs.setBrush('square')
-        );
+            myPs.setBrush('square'));
     document
         .querySelector('#btnCircle')
         .addEventListener('click', () =>
-            myPs.setBrush('circle')
-        );
+            myPs.setBrush('circle'));
     document
         .querySelector('#btnEmptyCircle')
         .addEventListener('click', () =>
-            myPs.setBrush('emptyCircle')
-        );
+            myPs.setBrush('emptyCircle'));
 
-    // ctx.rect(50, 50, 300, 200) //kwadrat
-    // ctx.fill()
-    // ctx.arc(500, 500, 50, 0, 2 * Math.PI) //kolko
-    // ctx.stroke() //-obrysowanie
+
+
+
     ctx = canvas.getContext('2d')
 
     drawImage()
@@ -65,24 +91,21 @@ function appStart() {
 
 
 
-
 function drawImage() {
     const image = new Image()
     image.src = "zdjecie.jpg"
     image.addEventListener('load', () => {
-        ctx.drawImage(image, 0, 0)
+        ctx.drawImage(image, 0, 0, ctx.canvas.width, ctx.canvas.height)
     })
 }
 
 function loadImage() {
-
     drawImage()
 }
 
 
 function clear() {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-
 }
 
 

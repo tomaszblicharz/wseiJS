@@ -1,7 +1,10 @@
 class Brush {
-    constructor(shape) {
+    constructor(shape, colorBrush, simpleColorBrush) {
         this.shape = shape;
         this.brush = document.createElement('div');
+        this.colorBrush = colorBrush;
+        this.simpleColorBrush = simpleColorBrush;
+
         // this.setStyleBrush(shape);
     }
 
