@@ -18,25 +18,20 @@ body {
 } */
 #settings {
     margin-top: 20px;
-
 }
 
 #image {
     padding: 5px;
-    display: inline-block;
-
     border: 3px solid black;
 }
 
 #filtr {
-    display: inline-block;
-    padding: 5px;
 
+    padding: 5px;
     border: 3px solid black;
 }
 
 #brush {
-    display: inline-block;
     padding: 5px;
     border: 3px solid black;
 }
@@ -49,10 +44,10 @@ body {
     transform: translate(-50%, -50%);
 } */
 
-.circle-brush {
+/* .circle-brush {
     border-radius: 50%;
-}
-
+} */
+/* 
 button {
     display: inline-block;
-}
+} */

@@ -3,42 +3,61 @@ document.addEventListener('DOMContentLoaded', appStart);
 let canvas
 let ctx
 let myPs
-const colorPurple = "#cb3594";
-const colorGreen = "#659b41";
-const colorYellow = "#ffcf33";
-const colorRed = "#986928";
-const colorBlack = "#934443";
+// const colorPurple = "#cb3594";
+// const colorGreen = "#659b41";
+// const colorYellow = "#ffcf33";
+// const colorRed = "#986928";
+// const colorBlack = "#934443";
 
 
 function appStart() {
     myPs = new Photoshop('canvas');
     canvas = document.querySelector('canvas');
-    let btnColor = document.querySelector('#color');
+
     // document
     //     .getElementById('canvas').style.cursor = "pointer";
+
+    let btnColor = document.querySelector('#color');
     btnColor
         .addEventListener('change', () => myPs.setColorBrush(btnColor.value));
+
+    let btnSize = document.querySelector('#size');
+    btnSize
+        .addEventListener('change', () => myPs.setSizeBrush(btnSize.value));
 
     document
         .querySelector('#btnRed')
         .addEventListener('click', () =>
             myPs.setSimpleColorBrush('colorRed'));
-    // document
-    //     .querySelector('#btnYellow')
-    //     .addEventListener('click', () =>
-    //         myPs.setSimpleColorBrush('colorYellow'));
-    // document
-    //     .querySelector('#btnBlack')
-    //     .addEventListener('click', () =>
-    //         myPs.setSimpleColorBrush('colorBlack'));
-    // document
-    //     .querySelector('#btnGreen')
-    //     .addEventListener('click', () =>
-    //         myPs.setSimpleColorBrush('colorGreen'));
-    // document
-    //     .querySelector('#btnBlue')
-    //     .addEventListener('click', () =>
-    //         myPs.setSimpleColorBrush('colorBlue'));
+    document
+        .querySelector('#btnYellow')
+        .addEventListener('click', () =>
+            myPs.setSimpleColorBrush('colorYellow'));
+    document
+        .querySelector('#btnBlack')
+        .addEventListener('click', () =>
+            myPs.setSimpleColorBrush('colorBlack'));
+    document
+        .querySelector('#btnGreen')
+        .addEventListener('click', () =>
+            myPs.setSimpleColorBrush('colorGreen'));
+    document
+        .querySelector('#btnBlue')
+        .addEventListener('click', () =>
+            myPs.setSimpleColorBrush('colorBlue'));
+
+    document
+        .querySelector('#btnSizeSmall')
+        .addEventListener('click', () =>
+            myPs.setSimpleSize('small'))
+    document
+        .querySelector('#btnSizeSmall')
+        .addEventListener('click', () =>
+            myPs.setSimpleSize('medium'))
+    document
+        .querySelector('#btnSizeSmall')
+        .addEventListener('click', () =>
+            myPs.setSimpleSize('large'))
 
     document
         .querySelector('#btnLoadImage')
@@ -67,6 +86,14 @@ function appStart() {
         .querySelector('#btnEmptyCircle')
         .addEventListener('click', () =>
             myPs.setBrush('emptyCircle'));
+    document
+        .querySelector('#btnTransparentMode')
+        .addEventListener('click', () =>
+            myPs.setBrush('transparentMode'));
+    document
+        .querySelector('#btnNormalMode')
+        .addEventListener('click', () =>
+            myPs.setBrush('normalMode'));
 
 
 
