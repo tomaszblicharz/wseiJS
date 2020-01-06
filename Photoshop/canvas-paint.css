@@ -4,23 +4,17 @@ body {
 
 #canvas {
     background: #fff;
-    margin: 30px auto;
-    position: relative;
-
+    margin-top: 30px;
+    margin-left:125px;
+    position: absolute;
 }
 
-/* .darken {
-    float: left;
-}
-
-.brightnes {
-    float: left;
-} */
 #settings {
     margin-top: 20px;
 }
 
 #image {
+    
     padding: 5px;
     border: 3px solid black;
 }
@@ -35,19 +29,33 @@ body {
     padding: 5px;
     border: 3px solid black;
 }
+#sizebrush
+{
+    padding: 5px;
+    margin-top: 20px;
 
-/* .brush {
-    width: 10px;
-    height: 10px;
-    background: red;
-    position: absolute;
-    transform: translate(-50%, -50%);
-} */
+}
+#typebrush
+{
+    padding: 5px;
+    margin-top: 20px;
 
-/* .circle-brush {
-    border-radius: 50%;
-} */
-/* 
-button {
-    display: inline-block;
-} */
+}
+#colorbrush
+{
+    padding: 5px;
+
+}
+.slider
+{
+ margin-left: 20px;
+}
+.rgb
+{
+    margin-left: 20px;
+ 
+}
+button
+{
+    margin-left: 3px;
+}

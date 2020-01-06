@@ -12,6 +12,8 @@
 </head>
 
 <body>
+    <h2>Photoshop</h2>
+    
     <div id="settings">
         <p1>Obraz</p1>
         <div id="image">
@@ -20,39 +22,43 @@
         </div>
         <p1>Pedzel</p1>
         <div id="brush">
-            <div id="colors">
+            <div id="colorbrush">
+                <p1>Kolory</p1>
                 <button id="btnRed">Czerwony</button>
                 <button id="btnGreen">Zielony</button>
                 <button id="btnYellow">Żółty</button>
                 <button id="btnBlack">Czarny</button>
                 <button id="btnBlue">Niebieski</button>
-
-                <input type="color" id="color" value="#000000">
+                <input type="color" id="color" class="rgb" value="#000000">
             </div>
-            <div>
+            
+            <div id="sizebrush">
+                <p1>Rozmiar</p1>
                 <button id="btnSizeSmall">Mały</button>
                 <button id="btnSizeMedium">Średni</button>
                 <button id="btnSizeLarge">Duży</button>
-
-                <input type="range" id="size" min="1" max="50" value="5">
+                <input type="range" id="size" class="slider" min="1" max="50" value="5">
             </div>
-            <!-- <input type="color" class="paint-color"> -->
 
-
-            <button id="btnSquare">Kwadrat</button>
+            <div id="typebrush">
+            <p1>Rodzaj</p1>
+            <a href="#" id="btnSquare">Kwadrat<i class="fas fa-pencil-alt"></i></a>
             <button id="btnCircle">Koło</button>
             <button id="btnEmptyCircle">PusteKoło</button>
+            <button id="btnRubber">Gumka</button>
             <button id="btnTransparentMode">TrybPrzezroczysty</button>
             <button id="btnNormalMode">TrybZwykly</button>
-        </div>
-        <p1>Filtry</p1>
-        <div id="filtr">
-            <button id="btnBrightnes">Rozjaśniaj</button>
-            <button id="btnDarken">Ściemniaj</button>
+            </div>
         </div>
     </div>
 
-    <canvas id="canvas" width="500" height="400"></canvas>
+    <p1>Filtry</p1>
+    <div id="filtr">
+        <button id="btnBrightnes">Rozjaśniaj</button>
+        <button id="btnDarken">Ściemniaj</button>
+    </div>
+    
+<div><canvas id="canvas" width="500" height="400"></canvas></div>
 
 </body>
 
