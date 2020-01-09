@@ -14,8 +14,8 @@ function appStart() {
     myPs = new Photoshop('canvas');
     canvas = document.querySelector('canvas');
 
-   document
-         .getElementById('canvas').style.cursor = "pointer";
+    document
+        .getElementById('canvas').style.cursor = "pointer";
 
     let btnColor = document.querySelector('#color');
     btnColor
@@ -24,7 +24,7 @@ function appStart() {
     let btnSize = document.querySelector('#size');
     btnSize
         .addEventListener('change', () => myPs.setSizeBrush(btnSize.value));
-       
+
     document
         .querySelector('#btnRed')
         .addEventListener('click', () =>
@@ -74,10 +74,18 @@ function appStart() {
         .querySelector('#btnBrightnes')
         .addEventListener('click', () =>
             brightnesFilter());
-            document
-            .querySelector('#btnRubber')
-            .addEventListener('click', () =>
-                myPs.setBrush('rubber'));
+    document
+        .querySelector('#btnBrightnes')
+        .addEventListener('click', () =>
+            brightnesFilter());
+    document
+        .querySelector('#btnBrightnes')
+        .addEventListener('click', () =>
+            brightnesFilter());
+    document
+        .querySelector('#btnHeart')
+        .addEventListener('click', () =>
+            myPs.setBrush('heart'));
     document
         .querySelector('#btnSquare')
         .addEventListener('click', () =>
@@ -100,8 +108,8 @@ function appStart() {
             myPs.setBrush('normalMode'));
 
 
-            document
-            .getElementById('canvas').style.cursor = "pointer";
+    document
+        .getElementById('canvas').style.cursor = "pointer";
 
     ctx = canvas.getContext('2d')
 

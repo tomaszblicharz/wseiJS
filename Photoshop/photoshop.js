@@ -15,7 +15,7 @@ class Photoshop {
 
 
 
-onTouchMove(e) {
+    onTouchMove(e) {
         // pobierz pędzel
         this.brushShape = new Brush(this.brushShapeName, this.brushColor, this.brushSize, this.pickColor)
         const brush = this.brushShape.getBrush();
@@ -31,72 +31,83 @@ onTouchMove(e) {
         // this.ctx.lineWidth = this.btnSize.value
         // this.ctx.lineWidth = radius;
 
-//wybierz kolor
-switch (this.pickColor) {
-    case 'colorBlack':
-        this.ctx.fillStyle = 'black'
-        this.ctx.strokeStyle = 'black'
-        break;
-    case 'colorRed':
-        this.ctx.fillStyle = 'red'
-        this.ctx.strokeStyle = 'red'
-        break;
-    case 'colorGreen':
-        this.ctx.fillStyle = 'green'
-        this.ctx.strokeStyle = 'green'
-        break;
-    case 'colorYellow':
-        this.ctx.fillStyle = 'yellow'
-        this.ctx.strokeStyle = 'yellow'
-        break;
-    case 'colorBlue':
-        this.ctx.fillStyle = 'blue'
-        this.ctx.strokeStyle = 'blue'
-        break;
-}
-//Wybierz rozmiar
-switch (this.pickSize) {
-    case 'small':
-        this.ctx.lineWidth = 5;
-        break;
-    case 'medium':
-        this.ctx.lineWidth = 15;
-        break;
-    case 'large':
-        this.ctx.lineWidth = 30;
-        break;
-}
-//namaluj
-switch (this.brushShapeName) { 
-    case 'square':
-        this.ctx.fillRect(x, y, this.brushSize, this.brushSize);
-        this.ctx.stroke()
-        this.ctx.beginPath();
-        break;
-    case 'circle':
-        this.ctx.beginPath();
-        this.ctx.arc(x, y, this.brushSize, 0, 2 * Math.PI);
-        this.ctx.fill()
-        break;
-    case 'emptyCircle':
-        this.ctx.beginPath();
-        this.ctx.arc(x, y, this.brushSize, 0, 2 * Math.PI);
-        this.ctx.stroke()
-        break;
-    case 'rubber':
-        this.ctx.lineTo();
-this.ctx.stroke();
-        
-        break;
-    case 'transparentMode':
-        this.ctx.globalAlpha = 0.2;
-        console.log('Wybierz pedzel')
-        break;
-    case 'normalMode':
-        this.ctx.globalAlpha = 1;
-        console.log('Wybierz pedzel')
-        break;
-    }
+        //wybierz kolor
+        switch (this.pickColor) {
+            case 'colorBlack':
+                this.ctx.fillStyle = 'black'
+                this.ctx.strokeStyle = 'black'
+                break;
+            case 'colorRed':
+                this.ctx.fillStyle = 'red'
+                this.ctx.strokeStyle = 'red'
+                break;
+            case 'colorGreen':
+                this.ctx.fillStyle = 'green'
+                this.ctx.strokeStyle = 'green'
+                break;
+            case 'colorYellow':
+                this.ctx.fillStyle = 'yellow'
+                this.ctx.strokeStyle = 'yellow'
+                break;
+            case 'colorBlue':
+                this.ctx.fillStyle = 'blue'
+                this.ctx.strokeStyle = 'blue'
+                break;
+        }
+        //Wybierz rozmiar
+        switch (this.pickSize) {
+            case 'small':
+                this.ctx.lineWidth = 5;
+                break;
+            case 'medium':
+                this.ctx.lineWidth = 15;
+                break;
+            case 'large':
+                this.ctx.lineWidth = 30;
+                break;
+        }
+        //namaluj
+        switch (this.brushShapeName) {
+            case 'square':
+                this.ctx.beginPath();
+                this.ctx.fillRect(x, y, this.brushSize, this.brushSize);
+                this.ctx.stroke()
+                break;
+            case 'circle':
+                this.ctx.beginPath();
+                this.ctx.arc(x, y, this.brushSize, 0, 2 * Math.PI);
+                this.ctx.fill()
+                break;
+            case 'emptyCircle':
+                this.ctx.beginPath();
+                this.ctx.arc(x, y, this.brushSize, 0, 2 * Math.PI);
+                this.ctx.stroke()
+                break;
+            case 'heart':
+                this.ctx.beginPath();
+                // this.ctx.moveTo(100, 100)
+                // this.ctx.arc(70, 100, 30, 0, 1 * Math.PI, 1)
+                // // this.ctx.lineTo(100, 200)
+                // // this.ctx.lineTo(160, 100);
+                // this.ctx.arcTo(100, 200, 160, 100, 6)
+                // this.ctx.arc(130, 100, 30, 0, 1 * Math.PI, 1)
+
+
+                this.ctx.arc(x, y, this.brushSize, 0, 1 * Math.PI, 1)
+                this.ctx.arcTo(100, 200, 160, 100, 6)
+                this.ctx.arc(x, y, this.brushSize, 0, 1 * Math.PI, 1)
+
+                this.ctx.stroke();
+                break;
+            case 'transparentMode':
+                this.ctx.globalAlpha = 0.2;
+                console.log('Wybierz pedzel')
+                break;
+            case 'normalMode':
+                this.ctx.globalAlpha = 1;
+                console.log('Wybierz pedzel')
+                break;
+        }
 
         // console.log(this.canvas.offsetTop)
 
