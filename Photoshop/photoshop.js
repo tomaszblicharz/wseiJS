@@ -93,9 +93,9 @@ class Photoshop {
                 // this.ctx.arc(130, 100, 30, 0, 1 * Math.PI, 1)
 
 
-                this.ctx.arc(x, y, this.brushSize, 0, 1 * Math.PI, 1)
+                this.ctx.arc(70, 100, 30, 0, 1 * Math.PI, 1)
                 this.ctx.arcTo(100, 200, 160, 100, 6)
-                this.ctx.arc(x, y, this.brushSize, 0, 1 * Math.PI, 1)
+                this.ctx.arc(130, 100, 30, 0, 1 * Math.PI, 1)
 
                 this.ctx.stroke();
                 break;
