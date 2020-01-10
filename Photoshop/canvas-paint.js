@@ -3,27 +3,23 @@ document.addEventListener('DOMContentLoaded', appStart);
 let canvas
 let ctx
 let myPs
-// const colorPurple = "#cb3594";
-// const colorGreen = "#659b41";
-// const colorYellow = "#ffcf33";
-// const colorRed = "#986928";
-// const colorBlack = "#934443";
 
 
 function appStart() {
     myPs = new Photoshop('canvas');
     canvas = document.querySelector('canvas');
 
-    document
-        .getElementById('canvas').style.cursor = "pointer";
+    // document
+    //     .getElementById('canvas').style.cursor = "pointer";
 
     let btnColor = document.querySelector('#color');
-    btnColor
-        .addEventListener('change', () => myPs.setColorBrush(btnColor.value));
+    btnColor.addEventListener('change', () => myPs.setColorBrush(btnColor.value));
 
     let btnSize = document.querySelector('#size');
-    btnSize
-        .addEventListener('change', () => myPs.setSizeBrush(btnSize.value));
+    btnSize.addEventListener('change', () => myPs.setSizeBrush(btnSize.value));
+
+    let btnColorBackground = document.querySelector('#colorBackground');
+    btnColorBackground.addEventListener('change', () => backgroundColor(btnColorBackground));
 
     document
         .querySelector('#btnRed')
@@ -75,13 +71,13 @@ function appStart() {
         .addEventListener('click', () =>
             brightnesFilter());
     document
-        .querySelector('#btnBrightnes')
+        .querySelector('#btnFiltr1')
         .addEventListener('click', () =>
-            brightnesFilter());
+            Filtr1());
     document
-        .querySelector('#btnBrightnes')
+        .querySelector('#btnFiltr2')
         .addEventListener('click', () =>
-            brightnesFilter());
+            Filtr2());
     document
         .querySelector('#btnHeart')
         .addEventListener('click', () =>
@@ -108,8 +104,7 @@ function appStart() {
             myPs.setBrush('normalMode'));
 
 
-    document
-        .getElementById('canvas').style.cursor = "pointer";
+
 
     ctx = canvas.getContext('2d')
 
@@ -168,6 +163,40 @@ function brightnesFilter(amount = 10) //-rozjasnia pixele i przepisuje na nowo d
         canvasData.data[i] += amount
         canvasData.data[i + 1] += amount
         canvasData.data[i + 2] += amount
+    }
+    ctx.putImageData(canvasData, 0, 0)
+}
+
+// function backgroundColor() //-Kolor tła
+// {
+//     const canvasData = ctx.getImageData(0, 0, 900, 600)
+//     for (let i = 0; i < canvasData.data.length; i += 4) {
+//         canvasData.data[i] += amount
+//         canvasData.data[i + 1] += amount
+//         canvasData.data[i + 2] += amount
+//     }
+//     ctx.putImageData(canvasData, 0, 0)
+// }
+
+function backgroundColor() //-Kolor tła 
+{
+
+    ctx.fillStyle = document.getElementById("colorBackground").value;
+    ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+
+}
+
+function Filtr1() //-rozjasnia pixele i przepisuje na nowo do canvasa
+{
+    const canvasData = ctx.getImageData(0, 0, 900, 600)
+
+    for (let i = 0; i < canvasData.data.length; i += 4) {
+        red = canvasData.data[i] = 255
+        green = canvasData.data[i + 1] = 100
+        blue = canvasData.data[i + 2] = 100
+        alpha = canvasData.data[i + 3] = 100
+        // const rgba = (red + green + blue) / 3;
+        // canvasData.data[i] = canvasData.data[i + 1] = canvasData.data[i + 2] = rgba;
     }
     ctx.putImageData(canvasData, 0, 0)
 }

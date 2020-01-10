@@ -9,26 +9,37 @@
     <script src="Brush.js"></script>
     <script src="photoshop.js"></script>
     <script src="canvas-paint.js"></script>
+    <script src="https://kit.fontawesome.com/8564494ab3.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
-    <h2>Photoshop</h2>
+
+    <div id="topBar">Photoshop<i class="fas fa-paint-brush"></i>
+        </h1>
+    </div>
+
+
 
     <div id="settings">
         <p1>Obraz</p1>
         <div id="image">
-            <button id="btnLoadImage">Wczytaj zdjęcie</button>
-            <button id="btnClear">Wyczyść</button>
+            <button id="btnLoadImage"><i class="fas fa-download"></i>
+
+            </button>
+            <button id="btnClear"><i class="fas fa-broom"></i>
+
+            </button>
         </div>
         <p1>Pedzel</p1>
         <div id="brush">
             <div id="colorbrush">
                 <p1>Kolory</p1>
-                <button id="btnRed">Czerwony</button>
-                <button id="btnGreen">Zielony</button>
-                <button id="btnYellow">Żółty</button>
-                <button id="btnBlack">Czarny</button>
-                <button id="btnBlue">Niebieski</button>
+                <button id="btnRed"></button>
+                <button id="btnGreen"></button>
+                <button id="btnYellow"></button>
+                <button id="btnBlack"></button>
+                <button id="btnBlue"></button>
                 <input type="color" id="color" class="rgb" value="#000000">
             </div>
 
@@ -42,10 +53,15 @@
 
             <div id="typebrush">
                 <p1>Rodzaj</p1>
-                <a href="#" id="btnSquare">Kwadrat<i class="fas fa-pencil-alt"></i></a>
-                <button id="btnCircle">Koło</button>
-                <button id="btnEmptyCircle">PusteKoło</button>
-                <button id="btnHeart">Serce</button>
+
+                <button id="btnSquare"><i class="fas fa-square"></i>
+
+                </button>
+                <button id="btnCircle"><i class="fas fa-circle"></i></button>
+                <button id="btnEmptyCircle"><i class="far fa-circle"></i></button>
+                <button id="btnHeart"><i class="fas fa-heart"></i>
+
+                </button>
                 <button id="btnTransparentMode">TrybPrzezroczysty</button>
                 <button id="btnNormalMode">TrybZwykly</button>
             </div>
@@ -54,10 +70,14 @@
 
     <p1>Filtry</p1>
     <div id="filtr">
-        <button id="Filtr1">Filtr1</button>
-        <button id="Filtr2">Filtr2</button>
+        <button id="btnFiltr1">Filtr1</button>
+        <button id="btnFiltr2">Filtr2</button>
         <button id="btnBrightnes">Rozjaśniaj</button>
         <button id="btnDarken">Ściemniaj</button>
+
+
+        <input type="color" id="colorBackground" value="#FFFFFF">
+
     </div>
 
     <div><canvas id="canvas" width="500" height="400"></canvas></div>

@@ -1,61 +1,235 @@
 body {
+
     background: lightslategrey;
 }
 
 #canvas {
     background: #fff;
     margin-top: 30px;
-    margin-left:125px;
+    margin-left: 125px;
     position: absolute;
+
 }
 
-#settings {
-    margin-top: 20px;
+
+#topBar {
+    color: red !important;
+    border: 3px solid black;
+    text-decoration-color: red;
+    padding: 20px;
+    font-size: 25px;
+    background-color: #3A383B;
 }
+
+
+
 
 #image {
-    
+
+    background-color: #a86d32;
     padding: 5px;
     border: 3px solid black;
 }
 
 #filtr {
+    background-color: #a86d32;
 
     padding: 5px;
     border: 3px solid black;
 }
 
 #brush {
+    background-color: #a86d32;
+
     padding: 5px;
     border: 3px solid black;
 }
-#sizebrush
-{
+
+#sizebrush {
     padding: 5px;
-    margin-top: 20px;
+}
+
+#typebrush {
+    padding: 5px;
+}
+
+#color {
+    background-color: black;
+    border-radius: 10px;
 
 }
-#typebrush
-{
-    padding: 5px;
-    margin-top: 20px;
 
+#colorBackground {
+    background-color: black;
+    border-radius: 10px;
 }
-#colorbrush
-{
-    padding: 5px;
 
+#colorbrush {
+    padding: 5px;
 }
-.slider
-{
- margin-left: 20px;
-}
-.rgb
-{
+
+.slider {
     margin-left: 20px;
- 
 }
-button
-{
+
+.rgb {
+    margin-left: 20px;
+}
+
+#size {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 125px;
+    height: 25px;
+    background: #d3d3d3;
+
+
+}
+
+.size:hover {
+    opacity: 1;
+}
+
+button {
+    border: none;
+
+
+    vertical-align: middle;
     margin-left: 3px;
+    font-size: 17px;
+
+    transition: 1s;
+    background: none;
+}
+
+#btnLoadImage {
+    font-size: 20px;
+    border: 1px solid;
+    background-color: green;
+}
+
+#btnClear {
+    font-size: 20px;
+    background-color: white;
+    border: 1px solid;
+}
+
+input {
+    vertical-align: middle;
+    border: 1px solid;
+    margin-left: 15px;
+
+}
+
+#btnRed {
+    border: 1px solid;
+
+    margin-left: 20px;
+    padding: 12px 24px;
+    background-color: red;
+}
+
+#btnGreen {
+    border: 1px solid;
+
+    padding: 12px 24px;
+    background-color: Green;
+}
+
+#btnBlack {
+    border: 1px solid;
+
+    padding: 12px 24px;
+    background-color: Black;
+}
+
+#btnYellow {
+    border: 1px solid;
+
+    padding: 12px 24px;
+    background-color: Yellow;
+}
+
+#btnBlue {
+    border: 1px solid;
+
+    padding: 12px 24px;
+    background-color: Blue;
+}
+
+#btnSizeSmall {
+    background-color: #348feb;
+    margin-left: 10px;
+    font-size: 10px;
+    border-radius: 15px;
+    border: 1px solid;
+
+}
+
+
+
+#btnSizeMedium {
+    background-color: #348feb;
+    font-size: 15px;
+    border-radius: 15px;
+    border: 1px solid;
+}
+
+#btnSizeLarge {
+    background-color: #348feb;
+    font-size: 20px;
+    border-radius: 15px;
+    border: 1px solid;
+}
+
+#btnSquare {
+    font-size: 20px;
+    margin-left: 15px;
+}
+
+#btnCircle {
+    font-size: 20px;
+}
+
+#btnEmptyCircle {
+    font-size: 20px;
+}
+
+#btnEmptyCircle {
+    font-size: 20px;
+}
+
+#btnTransparentMode {
+    opacity: 0.6;
+
+    background-color: #c0c1c2;
+    border: 1px solid;
+    border-radius: 15px;
+
+}
+
+#btnNormalMode {
+    background-color: #c0c1c2;
+    border: 1px solid;
+    border-radius: 15px;
+}
+
+#btnFiltr1 {
+    background-color: #333300;
+    border: 1px solid;
+}
+
+#btnFiltr2 {
+    background-color: #333000;
+    border: 1px solid;
+}
+
+#btnBrightnes {
+    background-color: #c0c1c2;
+    border: 1px solid;
+}
+
+#btnDarken {
+    background-color: #7d7e80;
+    border: 1px solid;
 }
