@@ -62,6 +62,7 @@ class Photoshop {
                 break;
             case 'large':
                 this.ctx.lineWidth = 30;
+
                 break;
         }
         //namaluj
@@ -74,7 +75,9 @@ class Photoshop {
             case 'circle':
                 this.ctx.beginPath();
                 this.ctx.arc(x, y, this.brushSize, 0, 2 * Math.PI);
+
                 this.ctx.fill();
+
                 break;
             case 'emptyCircle':
                 this.ctx.beginPath();
@@ -83,11 +86,11 @@ class Photoshop {
                 break;
             case 'heart':
                 this.ctx.beginPath();
-                this.ctx.arc((x - 30 * this.brushSize), y, 30 * this.brushSize, 0, 1 * Math.PI, 1);
+                this.ctx.arc((x - 2 * this.brushSize), y, 2 * this.brushSize, 0, 1 * Math.PI, 1);
 
-                this.ctx.arcTo(x, (50 + y * this.brushSize), (100 + x * this.brushSize), y, 10 * this.brushSize);
+                this.ctx.arcTo(x, (y + 6 * this.brushSize), (x + 10 * this.brushSize), y, 5);
 
-                this.ctx.arc((x + 30 * this.brushSize), y, 30 * this.brushSize, 0, 1 * Math.PI, 1);
+                this.ctx.arc((x + 2 * this.brushSize), y, 2 * this.brushSize, 0, 1 * Math.PI, 1);
                 this.ctx.stroke();
                 break;
             case 'transparentMode':
