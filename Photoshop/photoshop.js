@@ -9,7 +9,7 @@ class Photoshop {
         // this.pickColor = 'colorBlack', 'colorGreen', 'colorYellow', 'colorGreen', 'colorRed';
         // this.pickSize = 'small', 'medium', 'large';
         this.brushSize = 5;
-        this.brushColor = 'red';
+        this.brushColor = 'black';
         this.brushShapeName = 'circle';
     }
 
@@ -17,13 +17,11 @@ class Photoshop {
 
     onTouchMove(e) {
         // pobierz pędzel
-        this.brushShape = new Brush(this.brushShapeName, this.brushColor, this.brushSize, this.pickColor)
-        const brush = this.brushShape.getBrush();
+        this.brushShape = new Brush(this.brushShapeName, this.brushColor, this.brushSize, this.pickColor);
+        // const brush = this.brushShape.getBrush();
         // ustal położenie
         let x = e.touches[0].clientX - this.canvas.offsetLeft;
         let y = e.touches[0].clientY - this.canvas.offsetTop;
-        // brush.style.top = `${y}px`;
-        // brush.style.left = `${x}px`;
         this.ctx.strokeStyle = this.brushShape.colorBrush;
         this.ctx.fillStyle = this.brushShape.colorBrush;
         // this.ctx.lineWidth = 10;
@@ -34,24 +32,24 @@ class Photoshop {
         //wybierz kolor
         switch (this.pickColor) {
             case 'colorBlack':
-                this.ctx.fillStyle = 'black'
-                this.ctx.strokeStyle = 'black'
+                this.ctx.fillStyle = 'black';
+                this.ctx.strokeStyle = 'black';
                 break;
             case 'colorRed':
-                this.ctx.fillStyle = 'red'
-                this.ctx.strokeStyle = 'red'
+                this.ctx.fillStyle = 'red';
+                this.ctx.strokeStyle = 'red';
                 break;
             case 'colorGreen':
-                this.ctx.fillStyle = 'green'
-                this.ctx.strokeStyle = 'green'
+                this.ctx.fillStyle = 'green';
+                this.ctx.strokeStyle = 'green';
                 break;
             case 'colorYellow':
-                this.ctx.fillStyle = 'yellow'
-                this.ctx.strokeStyle = 'yellow'
+                this.ctx.fillStyle = 'yellow';
+                this.ctx.strokeStyle = 'yellow';
                 break;
             case 'colorBlue':
-                this.ctx.fillStyle = 'blue'
-                this.ctx.strokeStyle = 'blue'
+                this.ctx.fillStyle = 'blue';
+                this.ctx.strokeStyle = 'blue';
                 break;
         }
         //Wybierz rozmiar
@@ -76,18 +74,20 @@ class Photoshop {
             case 'circle':
                 this.ctx.beginPath();
                 this.ctx.arc(x, y, this.brushSize, 0, 2 * Math.PI);
-                this.ctx.fill()
+                this.ctx.fill();
                 break;
             case 'emptyCircle':
                 this.ctx.beginPath();
                 this.ctx.arc(x, y, this.brushSize, 0, 2 * Math.PI);
-                this.ctx.stroke()
+                this.ctx.stroke();
                 break;
             case 'heart':
                 this.ctx.beginPath();
-                this.ctx.arc(70, 100, 30, 0, 1 * Math.PI, 1);
-                this.ctx.arcTo(100, 200, 160, 100, 6);
-                this.ctx.arc(130, 100, 30, 0, 1 * Math.PI, 1);
+                this.ctx.arc((x - 30 * this.brushSize), y, 30 * this.brushSize, 0, 1 * Math.PI, 1);
+
+                this.ctx.arcTo(x, (50 + y * this.brushSize), (100 + x * this.brushSize), y, 10 * this.brushSize);
+
+                this.ctx.arc((x + 30 * this.brushSize), y, 30 * this.brushSize, 0, 1 * Math.PI, 1);
                 this.ctx.stroke();
                 break;
             case 'transparentMode':
@@ -103,6 +103,7 @@ class Photoshop {
         // console.log(this.canvas.offsetTop)
 
     }
+
     setBrush(brushShape) {
         this.brushShapeName = brushShape;
     }

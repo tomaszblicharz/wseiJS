@@ -6,15 +6,14 @@ class Brush {
         this.sizeBrush = sizeBrush;
         this.simpleSizeBrush = simpleSizeBrush;
 
-        // this.brush = document.createElement('div');
+        this.brush = document.createElement('div');
         // this.setStyleBrush(shape);
     }
+
 
     getBrush() {
         return this.brush
     }
 
-    // setStyleBrush(className) {
-    //     this.brush.classList.add('brush', `${className}-brush`);
-    // }
+
 }
