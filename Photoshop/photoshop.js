@@ -71,7 +71,7 @@ class Photoshop {
             case 'square':
                 this.ctx.beginPath();
                 this.ctx.fillRect(x, y, this.brushSize, this.brushSize);
-                this.ctx.stroke()
+                this.ctx.stroke();
                 break;
             case 'circle':
                 this.ctx.beginPath();
@@ -85,18 +85,9 @@ class Photoshop {
                 break;
             case 'heart':
                 this.ctx.beginPath();
-                // this.ctx.moveTo(100, 100)
-                // this.ctx.arc(70, 100, 30, 0, 1 * Math.PI, 1)
-                // // this.ctx.lineTo(100, 200)
-                // // this.ctx.lineTo(160, 100);
-                // this.ctx.arcTo(100, 200, 160, 100, 6)
-                // this.ctx.arc(130, 100, 30, 0, 1 * Math.PI, 1)
-
-
-                this.ctx.arc(70, 100, 30, 0, 1 * Math.PI, 1)
-                this.ctx.arcTo(100, 200, 160, 100, 6)
-                this.ctx.arc(130, 100, 30, 0, 1 * Math.PI, 1)
-
+                this.ctx.arc(70, 100, 30, 0, 1 * Math.PI, 1);
+                this.ctx.arcTo(100, 200, 160, 100, 6);
+                this.ctx.arc(130, 100, 30, 0, 1 * Math.PI, 1);
                 this.ctx.stroke();
                 break;
             case 'transparentMode':

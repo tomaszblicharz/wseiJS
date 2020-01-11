@@ -71,13 +71,13 @@ function appStart() {
         .addEventListener('click', () =>
             brightnesFilter());
     document
-        .querySelector('#btnFiltr1')
+        .querySelector('#btnSepia')
         .addEventListener('click', () =>
-            Filtr1());
+            Sepia());
     document
-        .querySelector('#btnFiltr2')
+        .querySelector('#btnSwap')
         .addEventListener('click', () =>
-            Filtr2());
+            Swap());
     document
         .querySelector('#btnHeart')
         .addEventListener('click', () =>
@@ -167,17 +167,6 @@ function brightnesFilter(amount = 10) //-rozjasnia pixele i przepisuje na nowo d
     ctx.putImageData(canvasData, 0, 0)
 }
 
-// function backgroundColor() //-Kolor tła
-// {
-//     const canvasData = ctx.getImageData(0, 0, 900, 600)
-//     for (let i = 0; i < canvasData.data.length; i += 4) {
-//         canvasData.data[i] += amount
-//         canvasData.data[i + 1] += amount
-//         canvasData.data[i + 2] += amount
-//     }
-//     ctx.putImageData(canvasData, 0, 0)
-// }
-
 function backgroundColor() //-Kolor tła 
 {
 
@@ -186,17 +175,34 @@ function backgroundColor() //-Kolor tła
 
 }
 
-function Filtr1() //-rozjasnia pixele i przepisuje na nowo do canvasa
+function Sepia() //
 {
     const canvasData = ctx.getImageData(0, 0, 900, 600)
 
     for (let i = 0; i < canvasData.data.length; i += 4) {
-        red = canvasData.data[i] = 255
-        green = canvasData.data[i + 1] = 100
-        blue = canvasData.data[i + 2] = 100
-        alpha = canvasData.data[i + 3] = 100
-        // const rgba = (red + green + blue) / 3;
-        // canvasData.data[i] = canvasData.data[i + 1] = canvasData.data[i + 2] = rgba;
+
+        r = canvasData.data[i]
+        g = canvasData.data[i + 1]
+        b = canvasData.data[i + 2]
+        var rgb = 0.299 * r + 0.587 * g + 0.114 * b;
+        canvasData.data[i] = rgb;
+        canvasData.data[i + 1] = rgb;
+        canvasData.data[i + 2] = rgb;
+    }
+    ctx.putImageData(canvasData, 0, 0)
+}
+
+function Swap() //-Kontrast
+{
+    const canvasData = ctx.getImageData(0, 0, 900, 600)
+    for (let i = 0; i < canvasData.data.length; i += 4) {
+        // var rgb = (259.0 * (amount + 255.0)) / (255.0 * (259.0 - amount));
+
+        canvasData.data[i] = canvasData.data[i]
+        canvasData.data[i + 1] = canvasData.data[i + 1] ^ 255
+        canvasData.data[i + 2] = canvasData.data[i + 2] ^ 255
+        canvasData.data[i + 3] = canvasData.data[i + 3]
+
     }
     ctx.putImageData(canvasData, 0, 0)
 }
