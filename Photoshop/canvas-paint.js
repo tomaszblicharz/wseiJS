@@ -18,8 +18,8 @@ function appStart() {
     let btnSize = document.querySelector('#size');
     btnSize.addEventListener('change', () => myPs.setSizeBrush(btnSize.value));
 
-    let btnColorBackground = document.querySelector('#colorBackground');
-    btnColorBackground.addEventListener('change', () => backgroundColor(btnColorBackground));
+    let = document.querySelector('#colorBackground')
+        .addEventListener('change', () => backgroundColor());
 
     document
         .querySelector('#btnRed')
