@@ -106,9 +106,10 @@ h1 {
 #pushTop {
     background-color: green;
     border: 3px solid black;
-    height: 300px;
+
     float: left;
     min-width: 200px;
+    min-height: 300px;
     /* position: relative; */
     margin-left: 10px;
 }
@@ -116,7 +117,7 @@ h1 {
 #pushDown {
     background-color: blue;
     border: 3px solid black;
-    height: 300px;
+    min-height: 300px;
     min-width: 200px;
     /* vertical-align: bottom; */
     clear: both;

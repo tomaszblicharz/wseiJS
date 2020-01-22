@@ -24,10 +24,23 @@ function appStart() {
 }
 
 
+// function pinNote() {
+//     let divContainer = document.getElementById('container'),
+//         clone = divContainer.cloneNode(true);
+//     document.body.appendChild(divContainer.cloneNode(true));
+// }
 function pinNote() {
-    let divContainer = document.getElementById('container'),
-        clone = divContainer.cloneNode(true);
-    document.body.appendChild(divContainer.cloneNode(true));
+    const checkboxValue = document.getElementById('checkbox').checked;
+    console.log(checkboxValue);
+    if (!checkboxValue) {
+        let divContainer = document.getElementById('container'),
+            clone = divContainer.cloneNode(true);
+        document.getElementById('pushDown').appendChild(divContainer.cloneNode(true));
+    } else {
+        let divContainer = document.getElementById('container'),
+            clone = divContainer.cloneNode(true);
+        document.getElementById('pushTop').appendChild(divContainer.cloneNode(true));
+    }
 }
 
 function changeColor() {
@@ -37,15 +50,7 @@ function changeColor() {
             'color').value;
 }
 
-// function pinTop {
-//     const all = documeny.getElementById('all')
-//     let newAllItem = document.createElement('container')
-//     all.appendChild(newAllItem)
-// }
 
-// function pinDown{
-
-// {
 
 // }
 // setBrush(brushShape) {
