@@ -37,12 +37,14 @@ function changeColor() {
             'color').value;
 }
 
-function pinTop {
-    cosnt all = documeny.getElementById('all')
-    let newAllItem = document.createElement('container')
-    all.appendChild(newAllItem)
-}
-// function pinDown
+// function pinTop {
+//     const all = documeny.getElementById('all')
+//     let newAllItem = document.createElement('container')
+//     all.appendChild(newAllItem)
+// }
+
+// function pinDown{
+
 // {
 
 // }
