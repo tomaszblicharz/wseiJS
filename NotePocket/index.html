@@ -8,28 +8,32 @@
     <title>NotePocket</title>
     <link rel="stylesheet" href="style.css">
     <script src="notepocket.js"></script>
+    <script src="https://kit.fontawesome.com/8564494ab3.js" crossorigin="anonymous"></script>
+
 </head>
 
-<body>
+<body onload="Time()">
     <h1>Note Pocket</h1>
 
     <div id="all">
         <div id=options>
-            <button id="btnPinNote">Przypnij</button>
-            <input type="color" id="color" value="#FFFFFF">
+            <button id="btnPinNote"><i class="fas fa-share"></i>
+
+            </button>
+            <input type="color" id="color" value="#00FFFF">
             <input type="checkbox" id="checkbox"></div>
         <div id=container>
             <div id=title>
                 <textarea></textarea></div>
             <div id=note>
                 <textarea></textarea></div>
-
             <div id=clock>
                 <div id="time"></div>
                 <div id="date"></div>
             </div>
         </div>
     </div>
+
     <div id="pushTop"></div>
     <div id="pushDown"></div>
 
