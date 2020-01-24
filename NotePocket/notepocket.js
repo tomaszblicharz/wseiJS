@@ -1,49 +1,72 @@
 document.addEventListener('DOMContentLoaded', appStart);
 
 
-const now = new Date();
-now;
-
 function appStart() {
 
     document
         .querySelector('#btnPinNote')
-        .addEventListener('click', () =>
-            pinNote());
+        .addEventListener('click', pinNote, false);
 
     document
         .addEventListener('change', () =>
             changeColor());
 
-    // let time = document.querySelector('#time')
-    // let date = document.querySelector('#date')
-    // document
-    //     .getElementById("time").innerText = "czas"
-    // document
-    //     .getElementById("date").innerText = "data";
+    window.addEventListener('load', () =>
+        Time());
 
 
-
+    createNote()
 }
 
-
-// function pinNote() {
-//     let divContainer = document.getElementById('container'),
-//         clone = divContainer.cloneNode(true);
-//     document.body.appendChild(divContainer.cloneNode(true));
-// }
 function pinNote() {
-    const checkboxValue = document.getElementById('checkbox').checked;
+    let checkboxValue = document.getElementById('checkbox').checked;
+
+    let divContainer = document.getElementById('container');
+    clone = divContainer.cloneNode(true);
+
     console.log(checkboxValue);
+
     if (!checkboxValue) {
-        let divContainer = document.getElementById('container'),
-            clone = divContainer.cloneNode(true);
+
         document.getElementById('pushDown').appendChild(divContainer.cloneNode(true));
+
     } else {
-        let divContainer = document.getElementById('container'),
-            clone = divContainer.cloneNode(true);
+
         document.getElementById('pushTop').appendChild(divContainer.cloneNode(true));
     }
+}
+
+function createNote() {
+    let divAll = document.createElement('div');
+    let divOptions = document.createElement('div');
+    let divContainer = document.createElement('div');
+    let divTitle = document.createElement('div');
+    let divNote = document.createElement('div');
+    let textareaTitle = document.createElement('textarea');
+    let textareaNote = document.createElement('textarea');
+
+
+    divAll.classList.add('all')
+    divOptions.classList.add('options')
+    divContainer.classList.add('container')
+    divTitle.classList.add('title')
+    divNote.classList.add('note')
+    textareaTitle.classList.add('textarea')
+    textareaNote.classList.add('textarea')
+
+
+    divAll.appendChild(divOptions);
+    divAll.appendChild(divContainer);
+    divContainer.appendChild(divTitle);
+    divTitle.appendChild(textareaTitle);
+    divContainer.appendChild(divNote);
+    divNote.appendChild(textareaNote);
+
+
+
+
+
+    document.body.appendChild(divContainer);
 }
 
 function changeColor() {
@@ -74,7 +97,6 @@ function Time() {
     document.getElementById("date").innerHTML = day + "." + month + "." + year;
 
     setTimeout("Time()", 1000);
-
 
 }
 
