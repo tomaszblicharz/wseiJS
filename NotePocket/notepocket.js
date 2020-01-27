@@ -1,6 +1,18 @@
 document.addEventListener('DOMContentLoaded', appStart);
 
 
+let counter = 1,
+    notes = [];
+
+// function getNoteObject() {
+//     let textarea = querySelector('textarea')
+//     return {
+//         content: textarea.value,
+//         id: clone.id,
+
+//     }
+// }
+
 function appStart() {
 
     document
@@ -14,60 +26,55 @@ function appStart() {
     window.addEventListener('load', () =>
         Time());
 
+    // if (!testLocalStorage()) {
+    //     let message = " wearesorry"
+    // } else {
+    //     function saveNote(note) {
+    //         localStorage.setItem(note.id, note)
+    //         // zapisujemy
+    //     }
+    // }
 
-    createNote()
 }
 
-function pinNote() {
-    let checkboxValue = document.getElementById('checkbox').checked;
 
+
+function pinNote() {
+    notes.push('container')
+    let checkboxValue = document.getElementById('checkbox').checked;
     let divContainer = document.getElementById('container');
     clone = divContainer.cloneNode(true);
-
-    console.log(checkboxValue);
+    counter++
+    clone.id = "container" + counter;
 
     if (!checkboxValue) {
-
-        document.getElementById('pushDown').appendChild(divContainer.cloneNode(true));
-
+        document.getElementById('pushDown').appendChild(clone);
     } else {
-
-        document.getElementById('pushTop').appendChild(divContainer.cloneNode(true));
+        document.getElementById('pushTop').appendChild(clone);
     }
 }
 
-function createNote() {
-    let divAll = document.createElement('div');
-    let divOptions = document.createElement('div');
-    let divContainer = document.createElement('div');
-    let divTitle = document.createElement('div');
-    let divNote = document.createElement('div');
-    let textareaTitle = document.createElement('textarea');
-    let textareaNote = document.createElement('textarea');
+// function saveText() {
+//     if (localStorage) {
+//         let key = "latest text annotated";
+//         let annotatedtext = document.getElementById("textareaTitle");
+//         let annotatextTextStringified = JSON.stringify(annotatedtext);
+//         localStorage.setItem(key, annotatedtext.outerHTML);
+//     } else {
+//         console.log("Error: you don't have localStorage!");
+//     }
+// }
 
-
-    divAll.classList.add('all')
-    divOptions.classList.add('options')
-    divContainer.classList.add('container')
-    divTitle.classList.add('title')
-    divNote.classList.add('note')
-    textareaTitle.classList.add('textarea')
-    textareaNote.classList.add('textarea')
-
-
-    divAll.appendChild(divOptions);
-    divAll.appendChild(divContainer);
-    divContainer.appendChild(divTitle);
-    divTitle.appendChild(textareaTitle);
-    divContainer.appendChild(divNote);
-    divNote.appendChild(textareaNote);
-
-
-
-
-
-    document.body.appendChild(divContainer);
-}
+// function testLocalStorage() {
+//     let foo = 'foo';
+//     try {
+//         localStorage.setItem(foo, foo);
+//         localStorage.removeItem(foo);
+//         return true;
+//     } catch (e) {
+//         return false;
+//     }
+// }
 
 function changeColor() {
     document.getElementById(
@@ -99,8 +106,3 @@ function Time() {
     setTimeout("Time()", 1000);
 
 }
-
-// }
-// setBrush(brushShape) {
-//     this.brushShapeName = brushShape;
-// }

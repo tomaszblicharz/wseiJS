@@ -1,15 +1,18 @@
 body {
-    background-color: #34aeeb;
+    background-color: #1d7a7a;
 }
 
 h1 {
-    color: #362e3b !important;
+    color: #000000 !important;
     text-align: center;
     font-size: 60px;
     font-weight: 900;
-    height: 80px;
-    background-color: #3483eb;
+    /* height: 80px;
+    background-color: #71c4b2; */
+}
 
+h2 {
+    text-align: center;
 }
 
 #btnPinNote {
@@ -39,8 +42,6 @@ h1 {
     color: transparent;
 }
 
-
-
 input[type=checkbox]:before {
     content: "\2714";
     border: 0.1em solid #000;
@@ -66,18 +67,14 @@ input[type=checkbox]:checked:before {
     color: #fff;
 }
 
-
-
-
 input {
     margin-left: 30px;
 }
 
+
 #options {
-
-
-    margin-top: 20px;
-    position: relative;
+    margin-top: 0px;
+    /* position: relative; */
 }
 
 #color {
@@ -85,46 +82,68 @@ input {
     border-radius: 10px;
     margin-left: 20px;
     border: black;
-
 }
 
 
 
-#container {
+
+#all {
+    position: relative;
 
     float: left;
-    margin-left: 20px;
+    min-height: 300px;
+    background-color: #2A9DAD;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+    border-style: groove;
+    min-width: 250px;
+    margin-top: 100px;
+    margin-left: 50px;
+}
+
+#container {
+    float: left;
+    margin-left: 25px;
     margin-top: 2px;
     position: relative;
     margin-bottom: 20px;
-
     background-color: .00FFFF;
+    max-width: 200px;
+
 }
-
-
 
 #title {
     background-color: transparent;
-    min-width: 150px;
-    max-width: 150px;
-    min-height: 30px;
     border-style: groove;
-
 }
 
-
+#textareaTitle {
+    font-size: 25 px;
+    max-width: 194px;
+    min-width: 194px;
+    min-height: 60px;
+    background: transparent;
+    border: none;
+    resize: none;
+}
 
 
 #note {
     background-color: transparent;
-    min-width: 150px;
-    max-width: 150px;
     min-height: 140px;
     border-bottom: none;
     border-style: groove;
     border-top: none;
 }
 
+
+#textareaNote {
+    background: transparent;
+    border: none;
+    min-height: 200px;
+    max-width: 190px;
+    min-width: 190px;
+}
 
 #pinNote {
     float: left;
@@ -151,37 +170,26 @@ input {
     margin-right: 4px;
 }
 
-#all {
+#pushDiv {
     float: left;
-    min-height: 300px;
-    background-color: #2A9DAD;
-    border-top: 3px solid black;
-    border-bottom: 3px solid black;
-    border-style: groove;
-    min-width: 200px;
-    float: left;
-
-    margin-top: 100px;
-    margin-left: 50px;
+    background-color: red;
+    width: 1300px;
+    height: 700px;
 }
 
 #pushTop {
-
-    float: left;
-    min-width: 200px;
-    min-height: 200px;
-
+    background-color: green;
+    min-width: 250px;
+    height: 350px;
     margin-left: 50px;
+    align-items: flex-start;
+
 }
 
-/* #pushDown {
-
-min-height: 300px;
-min-width: 200px;
-
-clear: both;
-
-margin-left: 306px;
-margin-top: 10px;
-
-} */
+#pushDown {
+    background-color: yellow;
+    height: 350px;
+    width: 200px;
+    float: left;
+    margin-left: 50px;
+}

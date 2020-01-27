@@ -7,33 +7,41 @@
 
     <title>NotePocket</title>
     <link rel="stylesheet" href="style.css">
-    <script src="notepocket.js"></script>
     <script src="https://kit.fontawesome.com/8564494ab3.js" crossorigin="anonymous"></script>
-
+    <script src="notepocket.js"></script>
 </head>
 
 <body>
     <h1>Note Pocket</h1>
+    <div id="allContainer">
 
-    <div id="all">
-        <div id="options">
-            <input type="color" id="color" value="#00FFFF">
-            <input type="checkbox" id="checkbox">
-            <button id="btnPinNote"><i class="fas fa-share"></i></button></div>
+        <div id="all">
+            <h2>Notatka</h2>
+            <div id="options">
+                <input type="color" id="color" value="#00FFFF">
+                <input type="checkbox" id="checkbox">
+                <button id="btnPinNote"><i class="fas fa-share"></i></button></div>
 
-        <div id="container">
-            <div id="title"></div>
-            <div id="note"></div>
-            <div id="clock">
-                <div id="time"></div>
-                <div id="date"></div>
+            <div id="container">
+                <div id="title">
+                    <textarea id="textareaTitle"></textarea></div>
+                <div id="note">
+                    <textarea id="textareaNote"></textarea></div>
+                <div id="clock">
+                    <div id="time"></div>
+                    <div id="date"></div>
+                </div>
             </div>
         </div>
+        <div id="pushDiv">
+            <div id="pushTop">
+            </div>
+            <div id="pushDown">
+            </div>
+        </div>
+
     </div>
 
-
-    <div id="pushTop"></div>
-    <div id="pushDown"></div>
 
 </body>
 
