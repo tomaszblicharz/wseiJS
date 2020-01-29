@@ -4,6 +4,14 @@ document.addEventListener('DOMContentLoaded', appStart);
 let counter = 1,
     notes = [];
 
+// function getNoteObject() {
+//     let textarea = querySelector('textarea')
+//     return {
+//         content: textarea.value,
+//         id: clone.id,
+
+//     }
+// }
 
 function appStart() {
 
@@ -18,60 +26,37 @@ function appStart() {
     window.addEventListener('load', () =>
         Time());
 
+    // if (!testLocalStorage()) {
+    //     let message = " wearesorry"
+    // } else {
+    //     function saveNote(note) {
+    //         localStorage.setItem(note.id, note)
+    //         // zapisujemy
+    //     }
+    // }
 
-
-
-
-    loadNotes()
+    // loadNotes()
 }
 
+// function loadNotes() {
+//     for (let i = 0; i < localStorage.length; i++) {
+//         console.log(localStorage.key(i));
+//     }
+// }
 
 function pinNote() {
 
 
 
-    let checkboxValue = document.getElementById('checkbox').checked;
-    let divContainer = document.getElementById('container');
-    clone = divContainer.cloneNode(true);
-    counter++
-    clone.id = "container" + counter;
 
-
-
-
-
-
-    if (checkboxValue == 1) {
-        document.getElementById('pushTop').appendChild(clone);
-
-    } else if (checkboxValue == 0) {
-        document.getElementById('pushDown').appendChild(clone);
-
-    }
 
     localStorage.setItem('notes', JSON.stringify(notes))
     notes = JSON.parse(localStorage.getItem('notes'))
     setNoteObject()
-    createDeleteBtn()
+
 }
 
-function createDeleteBtn() {
 
-    let deletebtn = document.createElement('button')
-    deletebtn.classList.add('deleteBtn')
-    clone.appendChild(deletebtn)
-
-
-    document.querySelector('#deleteBtn')
-    document.addEventListener('click', deleteNote, false);
-    // toString;le.appendChild(clone)
-}
-
-function deleteNote() {
-
-    localStorage.removeItem(notes)
-    console.log("click")
-}
 
 function setNoteObject() {
     let textarea = document.querySelector('#textareaNote').value
@@ -90,13 +75,6 @@ function setNoteObject() {
 
 
 
-function loadNotes() {
-    for (let i = 0; i < localStorage.length; i++) {
-
-        const notes = localStorage.getItem("notes");
-        console.log(JSON.parse(notes));
-    }
-}
 
 
 function changeColor() {

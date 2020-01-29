@@ -196,7 +196,7 @@ function Swap() //-Kontrast
 {
     const canvasData = ctx.getImageData(0, 0, 900, 600)
     for (let i = 0; i < canvasData.data.length; i += 4) {
-        // var rgb = (259.0 * (amount + 255.0)) / (255.0 * (259.0 - amount));
+
 
         canvasData.data[i] = canvasData.data[i]
         canvasData.data[i + 1] = canvasData.data[i + 1] ^ 255

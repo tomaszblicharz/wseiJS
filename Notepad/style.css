@@ -136,11 +136,6 @@ input {
     border-top: none;
 }
 
-.deleteBtn {
-    background-color: red;
-    height: 25px;
-    width: 204px;
-}
 
 #textareaNote {
     background: transparent;
@@ -148,8 +143,6 @@ input {
     min-height: 200px;
     max-width: 190px;
     min-width: 190px;
-    resize: none;
-
 }
 
 #pinNote {

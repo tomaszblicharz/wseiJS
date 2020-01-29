@@ -4,12 +4,12 @@ let notesArr = []
 
 // klasa notatki
 class Note {
-    constructor(title = '', description = '') {
-        this.title = title
-        this.description = description
-        this.color = 'red'
-        this.created = Date().toISOString()
-        this.pinned = false
+    constructor(title, note, color, checkbox) {
+        this.title = title;
+        this.note = note;
+        this.color = color;
+        this.checkbox = checkbox
+
     }
 }
 // zapisanie do localStorage
