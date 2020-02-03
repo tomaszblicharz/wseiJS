@@ -18,7 +18,7 @@ function appStart() {
         Time());
 
 
-    // loadNotes()
+    loadNote()
 }
 
 
@@ -51,13 +51,29 @@ function createDeleteBtn(clone, id) {
     deletebtn.classList.add('deleteBtn')
     deletebtn.addEventListener('click', () => removeNote(clone, id));
     clone.appendChild(deletebtn)
-    document.querySelector('#deleteBtn')
-    document.addEventListener('click', deleteNote, false);
+    // document.querySelector('#deleteBtn')
+
+}
+
+function setNoteObject() {
+    let textarea = document.querySelector('#textareaNote').value
+    let title = document.querySelector('#textareaTitle').value
+    let color = document.querySelector('#color').value
+    let pinned = document.querySelector('#checkbox').checked
+    const note = {
+        title: title,
+        content: textarea,
+        color: color,
+        checkbox: pinned,
+        id: counter,
+    }
+    notes.push(note);
 }
 
 function saveNote() {
     localStorage.setItem('notes', JSON.stringify(notes))
 }
+
 
 function removeNote(clone, id) {
     clone.parentNode.removeChild(clone);
@@ -76,34 +92,18 @@ function removeNote(clone, id) {
 
 
 
-function setNoteObject() {
-    let textarea = document.querySelector('#textareaNote').value
-    let title = document.querySelector('#textareaTitle').value
-    let color = document.querySelector('#color').value
-    let pinned = document.querySelector('#checkbox').checked
-    const note = {
-        title: title,
-        content: textarea,
-        color: color,
-        checkbox: pinned,
-        id: counter,
+
+function loadNote() {
+    if (localStorage.getItem("notes") != null) {
+        notes = JSON.parse(localStorage.getItem("notes"))
     }
-    notes.push(note);
+
+    for (let i = 0; i < localStorage.length; i++) {
+
+
+    }
+    setNoteObject(loadNote)
 }
-
-
-
-// function loadNotes() {
-//     if (localStorage.getItem("notes") != null) {
-//         notes = JSON.parse(localStorage.getItem("notes"))
-//     }
-
-//     for (let i = 0; i < localStorage.length; i++) {
-
-
-//     }
-//     setNoteObject(loadNotes)
-// }
 
 
 function changeColor() {
