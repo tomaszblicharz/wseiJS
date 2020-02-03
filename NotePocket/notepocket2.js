@@ -1,11 +1,12 @@
 document.addEventListener('DOMContentLoaded', appStart);
 
 
-let counter,
+let counter = 0,
     notes = [];
 
+
 function appStart() {
-    counter = localStorage.getItem('counter');
+
     document
         .querySelector('#btnPinNote')
         .addEventListener('click', pinNote, false);
@@ -17,63 +18,31 @@ function appStart() {
     window.addEventListener('load', () =>
         Time());
 
-
     // loadNotes()
+
 }
 
 
 function pinNote() {
-
-
     let checkboxValue = document.getElementById('checkbox').checked;
     let divContainer = document.getElementById('container');
     clone = divContainer.cloneNode(true);
     counter++
-    let id = counter;
     clone.id = "container" + counter;
 
-    if (!checkboxValue) {
-        document.getElementById('pushDown').appendChild(clone);
-
-    } else {
+    if (checkboxValue == 1) {
         document.getElementById('pushTop').appendChild(clone);
 
-    }
+    } else if (checkboxValue == 0) {
+        document.getElementById('pushDown').appendChild(clone);
 
+    }
     setNoteObject()
-    createDeleteBtn(clone, id)
     saveNote()
+
+
+    createDeleteBtn()
 }
-
-function createDeleteBtn(clone, id) {
-
-    let deletebtn = document.createElement('button')
-    deletebtn.classList.add('deleteBtn')
-    deletebtn.addEventListener('click', () => removeNote(clone, id));
-    clone.appendChild(deletebtn)
-    document.querySelector('#deleteBtn')
-    document.addEventListener('click', deleteNote, false);
-}
-
-function saveNote() {
-    localStorage.setItem('notes', JSON.stringify(notes))
-}
-
-function removeNote(clone, id) {
-    clone.parentNode.removeChild(clone);
-    let result = notes.find(obj => {
-        return obj.id === id;
-    });
-
-    let index = notes.indexOf(result);
-    if (index > -1) {
-        notes.splice(index, 1);
-    }
-    counter--;
-    localStorage.setItem('notes', JSON.stringify(notes))
-
-}
-
 
 
 function setNoteObject() {
@@ -91,19 +60,49 @@ function setNoteObject() {
     notes.push(note);
 }
 
+function createDeleteBtn() {
+
+    let deletebtn = document.createElement('button')
+    deletebtn.classList.add('deleteBtn')
+    clone.appendChild(deletebtn)
+    deletebtn.addEventListener('click', deleteNote, false)
+}
+
+function saveNote() {
+    console.log(notes)
+    let str = JSON.stringify(notes)
+    localStorage.setItem('notes', str)
+}
+
+// function loadNotes() {
+//     let str = localStorage.getItem('notes');
+//     notes = JSON.parse(str)
+//     if (!notes) {
+//         notes = [];
+//     }
+// }
 
 
 // function loadNotes() {
-//     if (localStorage.getItem("notes") != null) {
-//         notes = JSON.parse(localStorage.getItem("notes"))
-//     }
-
 //     for (let i = 0; i < localStorage.length; i++) {
-
-
+//         let noteObject = JSON.parse(
+//             localStorage.getItem(
+//                 localStorage.key(i)
+//             )
+//         );
 //     }
-//     setNoteObject(loadNotes)
+
 // }
+
+function deleteNote() {
+    document.querySelector('#deleteBtn')
+    this.parentElement.remove()
+    localStorage.removeItem(note.id)
+    // notes.splice()
+}
+
+
+
 
 
 function changeColor() {
