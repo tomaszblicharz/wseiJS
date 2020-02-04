@@ -1,0 +1,11 @@
+#gameArea {
+    border: 1px solid black
+}
+
+/* #imgBall {
+    width: 50px;
+} */
+
+img {
+    display: none;
+}
