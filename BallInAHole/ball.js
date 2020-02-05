@@ -42,4 +42,5 @@ class Ball {
         this.speed.x += x / 300
         this.speed.y += y / 300
     }
+
 }

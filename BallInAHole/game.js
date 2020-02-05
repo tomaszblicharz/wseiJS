@@ -3,7 +3,8 @@ class Game {
         this.gameHeight = gameHeight;
         this.gameWidth = gameWidth;
 
-
+        this.startTime;
+        this.finishTime;
     }
     startGame() {
         this.ball = new Ball(this);
@@ -15,10 +16,13 @@ class Game {
     update(deltaTime) {
         this.ball.update(deltaTime)
 
+
     }
     draw(ctx) {
         this.ball.draw(ctx)
         this.hole.draw(ctx)
     }
-
+    setStartTime() {
+        this.startTime = new Date().getTime();
+    }
 }
