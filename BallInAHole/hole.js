@@ -6,6 +6,9 @@ class Hole {
         this.size = 100;
         this.x = 300;
         this.y = 300;
+        this.game = game;
+        this.markedForDeletion = false;
+
     }
     draw(ctx) {
         ctx.drawImage(this.image, this.x, this.y, this.size, this.size)
@@ -13,6 +16,8 @@ class Hole {
     update() {
         if (detectCollision(this.game.ball, this)) {
             this.game.ball.speed.y = -this.game.ball.speed.y
+            this.markedForDeletion = true;
+
         }
     }
 }

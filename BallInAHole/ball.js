@@ -16,7 +16,7 @@ class Ball {
         this.size = 40;
         this.gameloop
         this.startMoveBall()
-
+        this.game = game
     }
     draw(ctx) {
         ctx.drawImage(this.image, this.x, this.y, this.size, this.size)
@@ -33,6 +33,15 @@ class Ball {
         }
         if (this.y + this.size > this.gameHeight || this.y < 0) {
             this.speed.y = -this.speed.y
+        }
+
+        let bottomOfBall = this.y + this.size;
+        let topOfHole = this.game.hole.y
+        let leftSideOfHole = this.game.hole.x;
+        let rightSideOfHole = this.game.hole.x + this.game.hole.width
+        if (bottomOfBall >= topOfHole && this.x >= leftSideOfHole && this.x + this.size <= rightSideOfHole) {
+            this.speed.y = -this.speed.y
+            this.y = this.game.hole.y - this.size;
         }
 
     }
