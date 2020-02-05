@@ -2,10 +2,10 @@
     border: 1px solid black
 }
 
-/* #imgBall {
-    width: 50px;
-} */
+#imgRecycleBin {
+    display: none;
+}
 
-img {
+#imgUnnamed {
     display: none;
 }
