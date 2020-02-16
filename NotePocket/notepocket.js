@@ -26,7 +26,11 @@ function pinNote() {
 
 
     let checkboxValue = document.getElementById('checkbox').checked;
-    let divContainer = document.getElementById('container');
+    // let divContainer = document.getElementById('container');
+    // let checkboxValue = document.querySelector('checkbox').checked;
+    // let divContainer = document.getElementsByName('container');
+    let divContainer = document.getElementsByClassName('container');
+
     clone = divContainer.cloneNode(true);
     counter++
     let id = counter;
@@ -68,6 +72,7 @@ function setNoteObject() {
         id: counter,
     }
     notes.push(note);
+    localStorage.getItem("notes")
 }
 
 function saveNote() {
@@ -94,20 +99,52 @@ function removeNote(clone, id) {
 
 
 function loadNote() {
-    if (localStorage.getItem("notes") != null) {
-        notes = JSON.parse(localStorage.getItem("notes"))
-    }
+    // if (localStorage.getItem("notes") != null) {
+    //     notes = JSON.parse(localStorage.getItem("notes"))
+    // }
 
     for (let i = 0; i < localStorage.length; i++) {
+        let notes = JSON.parse(localStorage.getItem("notes"))
+        // pushDiv.innerHTML += `${notes}`
+        notes.forEach(element => {
+           let container  = document.createElement('div')
+           let title  = document.createElement('div')
+           let note  = document.createElement('div')
+           let clock  = document.createElement('div')
+           let time  = document.createElement('div')
+           let date  = document.createElement('div')
+           let textareaTitle  = document.createElement('textarea')
+           let textareaNote  = document.createElement('textarea')
 
+           container.classList.add('container')
+           title.classList.add('title')
+           note.classList.add('note')
+           clock.classList.add('clock')
+           time.classList.add('time')
+           date.classList.add('date')
+           textareaNote.classList.add('textareaNote')
+           textareaTitle.classList.add('textareaTitle')
+
+           container.appendChild(title)
+           title.appendChild(textareaTitle)
+            container.appendChild(note)
+            note.appendChild(textareaNote)
+            container.appendChild(clock)
+            clock.appendChild(time)
+            clock.appendChild(date)
+
+            
+
+
+        });
+        
 
     }
-    setNoteObject(loadNote)
 }
 
 
 function changeColor() {
-    document.getElementById(
+    document.getElementsByClassName(
             'container').style.backgroundColor =
         document.getElementById(
             'color').value;
@@ -130,8 +167,8 @@ function Time() {
     let seconds = time.getSeconds();
     if (seconds < 10) seconds = "0" + seconds;
 
-    document.getElementById("time").innerHTML = hour + ":" + minutes + ":" + seconds;
-    document.getElementById("date").innerHTML = day + "." + month + "." + year;
+    document.getElementsByClassName("time").innerHTML = hour + ":" + minutes + ":" + seconds;
+    document.getElementsByClassName("date").innerHTML = day + "." + month + "." + year;
 
     setTimeout("Time()", 1000);
 
