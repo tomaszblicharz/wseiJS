@@ -1,20 +1,16 @@
-// function detectCollision(ball, gameObject) {
-//     let bottomOfBall = ball.y + ball.size;
-//     let topOfBall = ball.y;
+function checkBallInHole(ball, hole) {
+    let SideOfBallX = ball.x;
+    let SideOfBallY = ball.y;
+    let bottomSideOfBallY = ball.y + ball.size;
+    let rightSideOfBallX = ball.x + ball.size;
 
-//     let topOfObject = gameObject.y;
-//     let leftSideOfObject = gameObject.x;
-//     let rightSideOfObject = gameObject.x + gameObject.width;
-//     let bottomOfObject = gameObject.y + gameObject.height;
-
-//     if (
-//         bottomOfBall >= topOfObject &&
-//         topOfBall <= bottomOfObject &&
-//         ball.x >= leftSideOfObject &&
-//         ball.x + ball.size <= rightSideOfObject
-//     ) {
-//         return true;
-//     } else {
-//         return false;
-//     }
-// }
+    let SideOfHoleX = hole.x;
+    let SideOfHoleY = hole.y;
+    let bottomSideOfHoleY = hole.y + hole.size;
+    let rightSideOfHoleX = hole.x + hole.size;
+    if ((SideOfBallX > SideOfHoleX && rightSideOfBallX < rightSideOfHoleX) && (SideOfBallY > SideOfHoleY && bottomSideOfBallY < bottomSideOfHoleY)) {
+        return true;
+    } else {
+        return false;
+    }
+}

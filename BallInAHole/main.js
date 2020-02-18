@@ -7,6 +7,7 @@ let canvas,
     ball,
     hole,
     game,
+    collision,
     lastTime = 0;
 
 function appStart() {
